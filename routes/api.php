@@ -17,7 +17,7 @@ Route::post('login', 'AuthController@postLogin');
 Route::post('register', 'AuthController@postRegister');
 Route::get('logout', 'AuthController@getLogout');
 
-Route::group(['prefix' => 'phone', 'middleware' => 'auth:api'], function() {
+Route::group(['prefix' => 'phone'], function() {
   Route::get('index', 'PhoneController@index');
   Route::post('create', 'PhoneController@create');
   Route::get('show/{id}', 'PhoneController@show');

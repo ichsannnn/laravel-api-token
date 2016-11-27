@@ -7,15 +7,10 @@ use App\Phone;
 
 class PhoneController extends Controller
 {
-    // public function __construct()
-    // {
-    //   $this->middleware('mymiddleware');
-    // }
 
     public function index()
     {
       $phone = Phone::all();
-      // $phone = \Auth::user()->username;
 
       return response()->json($phone);
     }

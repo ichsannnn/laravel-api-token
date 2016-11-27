@@ -37,17 +37,27 @@ class AuthController extends Controller
     {
       $user = new User;
       $response = [];
+      $username = $r->input('username');
+      $password = $r->input('password');
 
       $user->name = $r->input('name');
-      $user->username = $r->input('username');
-      $user->password = bcrypt($r->input('password'));
+      $user->username = $username;
+      $user->password = bcrypt($password);
       $user->api_token = str_random(60);
       $user->save();
 
-      $response['success'] = 1;
-      $response['message'] = 'Registrasi sukses!';
+      if (Auth::attempt(['username' => $username, 'password' => $password])) {
+        $response['success'] = 1;
+        $response['message'] = 'Registrasi sukses!';
+        // Auth::check();
+        // $response['id'] = Auth::user()->id;
+        $user = User::find(Auth::user()->id);
+        $user->api_token = str_random(60);
+        $user->save();
+        $response['user'] = $user;
 
-      return response()->json($response);
+        return response()->json($response);
+      }
     }
 
     public function getLogout()
