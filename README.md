@@ -1,7 +1,7 @@
 # Laravel API Token
-Dasar Laravel API CRUD, dapat digunakan sebagai webserver untuk aplikasi Android.
+Dasar Laravel API CRUD + Auth, dapat digunakan sebagai webserver untuk aplikasi Android.
 
-Android Project: [Github](https://github.com/ichsantrueblue/Android-API-Token)
+Android Project: [Github](https://github.com/ichsantrueblue/android-api-token)
 
 ## Installasi
 * Buka terminal, lalu pindah direktori kedalam folder
